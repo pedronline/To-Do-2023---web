@@ -20,6 +20,30 @@ export function Task({ tasks, setTasks }: TaskProps) {
     });
   }, [setTasks]);
 
+  const handleTaskComplete = async (taskId: string, isCompleted: boolean) => {
+    if (isCompleted) {
+      await api.patch(`/tasks/${taskId}`, { completed: true });
+      setTasks((tasks) =>
+        tasks.map((task) => {
+          if (task.id === taskId) {
+            return { ...task, completed: true };
+          }
+          return task;
+        })
+      );
+    } else {
+      await api.patch(`/tasks/${taskId}`, { completed: false });
+      setTasks((tasks) =>
+        tasks.map((task) => {
+          if (task.id === taskId) {
+            return { ...task, completed: false };
+          }
+          return task;
+        })
+      );
+    }
+  };
+
   const deleteTask = async (taskId: string) => {
     await api.delete(`/tasks/${taskId}`);
     setTasks(tasks.filter((task) => task.id !== taskId));
@@ -30,7 +54,13 @@ export function Task({ tasks, setTasks }: TaskProps) {
       {tasks ? (
         tasks.map((task) => (
           <div className="container-task" key={task.id}>
-            <input type="radio" />
+            <label>
+              <input
+                type="checkbox"
+                checked={task.completed}
+                onChange={() => handleTaskComplete(task.id, !task.completed)}
+              />
+            </label>
             <input
               className="task-area"
               value={task.description}
