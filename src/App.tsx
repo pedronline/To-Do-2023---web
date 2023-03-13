@@ -1,11 +1,18 @@
-import { useState } from 'react';
-import reactLogo from './assets/react.svg';
+import { Input } from './components/Input/Input';
+import { Task } from './components/Task/Task';
+
 import './App.css';
 
 function App() {
-  const [count, setCount] = useState(0);
-
-  return <div className="App"></div>;
+  return (
+    <div className="App">
+      <div className="header">
+        <img src="../src/assets/Logo.svg" />
+      </div>
+      <Input />
+      <Task />
+    </div>
+  );
 }
 
 export default App;

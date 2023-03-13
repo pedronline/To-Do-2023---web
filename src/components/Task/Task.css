@@ -1,0 +1,31 @@
+:root {
+  display: flex;
+  justify-content: center;
+}
+
+.container-task {
+  display: inline-block;
+  width: 40rem;
+  height: 50px;
+  background-color: var(--gray-500);
+  color: var(--gray-200);
+
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.task-area {
+  width: 36rem;
+  height: 42px;
+  font-size: 1.2rem;
+  background-color: var(--gray-500);
+  border-radius: 8px;
+  border: none;
+  resize: none;
+  color: white;
+  overflow: hidden;
+}
+
+.trash:hover {
+  color: red;
+}

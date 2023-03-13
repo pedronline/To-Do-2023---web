@@ -1,0 +1,32 @@
+.container {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  bottom: 25px;
+}
+.container .text {
+  width: 32.5rem;
+  height: 50px;
+  background-color: var(--gray-500);
+  color: var(--gray-200);
+  border: none;
+  border-radius: 8px;
+  margin-right: 1rem;
+  padding-left: 1rem;
+}
+.container .button {
+  width: 90px;
+  height: 52px;
+  background-color: var(--blue-dark);
+  border-radius: 8px;
+  border: none;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  white-space: pre-wrap;
+}
+
+.container .button:hover {
+  background-color: var(--blue);
+}

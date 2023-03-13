@@ -1,4 +1,11 @@
 :root {
+  width: 100vw;
+  height: 100vh;
+
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.4;
   font-weight: 400;
@@ -21,21 +28,4 @@
   --gray-700: #0d0d0d;
 
   --danger: #e25858;
-}
-
-a {
-  font-weight: 500;
-  color: var(--purple-dark);
-  text-decoration: inherit;
-}
-a:hover {
-  color: var(--purple);
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
 }
