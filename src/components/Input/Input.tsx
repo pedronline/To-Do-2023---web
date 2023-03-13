@@ -24,6 +24,12 @@ export function Input() {
     });
   }
 
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === 'Enter') {
+      handleCreateTask();
+    }
+  };
+
   return (
     <div>
       <div className="container">
@@ -33,6 +39,7 @@ export function Input() {
           placeholder="Adicione uma nova tarefa"
           value={newTaskDescription}
           onChange={(event) => setNewTaskDescription(event.target.value)}
+          onKeyDown={handleKeyDown}
         />
         <button className="button" type="button" onClick={handleCreateTask}>
           Criar <PlusCircle size={18} />
