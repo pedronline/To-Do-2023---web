@@ -29,3 +29,7 @@
 .trash:hover {
   color: red;
 }
+
+.container-task.task-completed .task-area {
+  text-decoration: line-through;
+}

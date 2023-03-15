@@ -13,6 +13,7 @@ interface TaskProps {
 
 export function Task({ tasks, setTasks }: TaskProps) {
   const [taskDescription, setTaskDescription] = useState('');
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     api.get('/tasks').then((res) => {
@@ -53,7 +54,12 @@ export function Task({ tasks, setTasks }: TaskProps) {
     <div>
       {tasks ? (
         tasks.map((task) => (
-          <div className="container-task" key={task.id}>
+          <div
+            className={`container-task ${
+              task.completed ? 'task-completed' : ''
+            }`}
+            key={task.id}
+          >
             <label>
               <input
                 type="checkbox"
@@ -61,6 +67,7 @@ export function Task({ tasks, setTasks }: TaskProps) {
                 onChange={() => handleTaskComplete(task.id, !task.completed)}
               />
             </label>
+
             <input
               className="task-area"
               value={task.description}
